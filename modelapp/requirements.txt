@@ -1,0 +1,10 @@
+numpy
+flask
+flask_cors
+Pillow
+opencv-python
+fer
+pymongo
+pandas
+tensorflow
+gunicorn

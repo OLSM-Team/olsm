@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}OLSM | Overview{% endblock %}
+
+{% block content %}
+
+<div id="success-alert" class="alert alert-success text-center pt-2" style="display: none;">
+    <p class="my-0"><i class="fas fa-circle-check"></i> Invitation link copied to clipboard!</p>
+</div>
+
+<div class="row flex-grow-1 py-lg-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-7 col-xl-9">
+            <!-- Table -->
+            <table class="table align-middle mb-0 bg-white table-hover">
+                <thead class="bg-light">
+                    <tr class="text-center">
+                        <th>Title</th>
+                        <th>Expected Duration</th>
+                        <th>Status</th>
+                        <th>Start Time (GMT)</th>
+                        <th>End Time (GMT)</th>
+                        <th>Meeting Link</th>
+                        <th>Actions</th>
+                        <!-- Main: Dashboard | Dropdown: Copy Invite + Tooltip Feedback, Stop (Disabled if already stopped), Delete (red color and prompt confirmation)  -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lecture in lectures %}
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span class="ms-2 me-2 fw-bold lecture-id" style="color:rgb(93, 0, 143)">{{ lecture["id"]
+                                    }}</span>
+                                <div class="ms-3">
+                                    <p class="fw-bold text-muted mb-1">{{ lecture["course"] }}</p>
+                                    <p class="fw-bold mb-0">{{ lecture["title"] }}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-bold mb-0">{{ lecture["duration"] }} <span
+                                    class="text-muted mb-0">minutes</span></p>
+                        </td>
+                        <!-- Status -->
+                        <td class="text-center">
+                            {% if lecture["status"] %}
+                            <span class="badge badge-danger rounded-pill d-inline">Terminated</span>
+                            {% else %}
+                            <span class="badge badge-success rounded-pill d-inline">Ongoing</span>
+                            {% endif %}
+                        </td>
+                        <!-- Start Time -->
+                        <td class="text-center fw-bold">
+                            <p class="mb-1">{{ get_time(lecture["start"]) }}</p>
+                            <p class="text-muted mb-0">{{ get_date(lecture["start"]) }}</p>
+                        </td>
+                        <!-- End Time -->
+                        <td class="text-center fw-bold">
+                            {% if lecture["end"] != "" %}
+                            <p class="mb-1">{{ get_time(lecture["end"]) }}</p>
+                            <p class="text-muted mb-0">{{ get_date(lecture["end"]) }}</p>
+                            {% else %}
+                            <span class="fw-bold" style="color: red;">N/A</span>
+                            {% endif %}
+                        </td>
+                        <!-- Meeting Link -->
+                        <td class="text-center">
+                            {% if lecture["link"] != "" %}
+                            <a class="btn btn-link btn-sm btn-rounded fw-bold" href="{{ lecture['link'] }}"
+                                target="_blank" rel="noopener noreferrer">Open Meeting <i
+                                    class="fas fa-up-right-from-square"></i></a>
+                            {% else %}
+                            <span class="fw-bold" style="color: red;">N/A</span>
+                            {% endif %}
+                        </td>
+                        <!-- Lecture Actions -->
+                        <td>
+                            <div class="btn-group shadow-0">
+                                <a type="button" href={{'https://olsm.ddns.net/d/' + lecture['dash']}}
+                                    class="btn btn-sm btn-link fw-bold {% if lecture['records'] %}disabled{% endif %}">Dashboard</a>
+                                <button type="button" class="btn btn-sm btn-link fw-bold dropdown-toggle-split"
+                                    data-mdb-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-ellipsis"></i>
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu text-center">
+                                    <li><button type="button"
+                                            data-clipboard-text="https://olsm.ddns.net/invitation/{{ lecture['invite'] }}"
+                                            class="copyinvite dropdown-item {% if lecture['status'] %}disabled{% endif %} fw-bold">Copy
+                                            Invite</button></li>
+                                    <li><button type="button"
+                                            class="dropdown-item {% if lecture['status'] %}disabled{% endif %} terminate-lecture fw-bold">Terminate</button>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li><button type="button" class="dropdown-item fw-bold delete-lecture"><span
+                                                style="color:#F63E37"">Delete Records</span></button></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- Table -->
+        </div>
+    </div>
+</div>
+
+<script src="../static/clipboard.min.js"></script>
+<script src="../static/overview.js"></script>
+
+{% endblock %}

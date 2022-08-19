@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}OLSM | Ongoing Lecture{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto mt-5 text-center">
+                <h1>Current Status</h1>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Lecture ID: {{ lec_id }}</li>
+                    <li class="list-group-item">Student ID: {{ std_id }}</li>
+                    <li class="list-group-item">Chunk ID: <span id="chunk">-</span></li>
+                    <li class="list-group-item">Mind State: <span id="state">-</span></li>
+                </ul>
+                <p id="error" style="color: red;"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 mx-auto mt-5 text-center d-grid">
+                <button id="cam-btn" class="btn btn-success btn-lg">Show Webcam Preview!</button>
+            </div>
+        </div>
+    </div>
+    <div id="camera" style="display: none;"></div>
+{% endblock %}

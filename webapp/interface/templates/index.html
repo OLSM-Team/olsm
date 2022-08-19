@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}OLSM | Home Page{% endblock %}
+
+{% block content %}
+
+<div class="row py-lg-5 flex-grow-1">
+    <!--Grid column-->
+    <div class="col-6 mx-auto my-lg-5 text-white text-md-left">
+
+        <h1 class="display-3 font-weight-bold text-center">Welcome to OLSM!</h1>
+
+        <hr class="hr-light">
+
+        <p class="lead">
+            Ensure the best environment of online education...
+        </p>
+
+        <p class="mb-4 d-none d-md-block lead">
+                Whether you're a student or an instructor, didn't you find online classes lacking in the
+                aspect of noticing engagement state of the students and the student-instructor human interaction?
+            <br>
+                Our solution uses AI-assisted system to convey students' state of mind to the instructor through
+                a real-time, comprehensive, and user-friendly dashboard.
+        </p>
+        {% if role == 1 %}
+        <!-- Instructor View -->
+        <div class="d-flex flex-row justify-content-center">
+            <a href="https://olsm.ddns.net/create" class="btn btn-light btn-lg">Create a lecture now!  
+                <i class="fas fa-graduation-cap ml-2"></i>
+            </a>
+        </div>
+        {% elif role is none %}
+        <div class="d-flex flex-row justify-content-center">
+            <a href="https://olsm.ddns.net/register" class="btn btn-light btn-lg">Create an account now! 
+                <i class="fas fa-graduation-cap ml-2"></i>
+            </a>
+        </div>
+        {% else %}
+        <div class="d-flex flex-row justify-content-center">
+            <p class="lead fw-bold">You are all set! Wait for invitation from your instructor...</p>
+        </div>
+        {% endif %}
+    </div>
+    <!--Grid column-->
+</div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}OLSM | Sign Up Page{% endblock %}
+
+{% block content %}
+
+<div class="container flex-grow-1 py-lg-5">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+
+          <div class="mb-md-3 mt-md-4 pb-1">
+
+            <h2 class="fw-bold mb-2 text-uppercase">Sign Up</h2>
+
+            <form>
+              <p class="text-white-50 mb-5">Please complete the following fields!</p>
+
+              <!-- <div id="NameGroup" class="form-outline form-white mb-4">
+                <input type="text" name="name" id="InputName" class="form-control form-control-lg rounded" required />
+                <label class="form-label" for="InputName">Full Name <span class="font-weight-bold" style="color:rgb(240, 0, 148)">*</span></label>
+              </div> -->
+
+              <div id="NameGroup" class="d-flex">
+                <div class="flex-fill">
+                  <div id="FNameGroup" class="form-outline form-white mb-4 me-1">
+                    <input type="text" name="fname" id="InputFName" class="form-control form-control-lg rounded"
+                      required />
+                    <label class="form-label" for="InputFName">First Name <span class="font-weight-bold"
+                        style="color:rgb(240, 0, 148)">*</span></label>
+                  </div>
+                </div>
+                <div class="flex-fill">
+                  <div id="LNameGroup" class="form-outline form-white mb-4 ms-1">
+                    <input type="text" name="lname" id="InputLName" class="form-control form-control-lg rounded"
+                      required />
+                    <label class="form-label" for="InputLName">Last Name
+                      <span class="font-weight-bold" style="color:rgb(240, 0, 148)">*</span></label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div id="EmailGroup" class="form-outline form-white mb-4">
+                <input type="email" name="email" id="InputEmail" class="form-control form-control-lg rounded"
+                  required />
+                <label class="form-label" for="InputEmail">Email <span class="font-weight-bold"
+                    style="color:rgb(240, 0, 148)">*</span></label>
+              </div>
+
+              <div class="d-flex">
+                <div class="flex-fill">
+                <div id="PasswordGroup" class="form-outline form-white  mb-4 me-1">
+                  <input type="password" name="password1" id="InputPassword"
+                    class="form-control form-control-lg rounded" required />
+                  <label class="form-label" for="InputPassword">Password <span class="font-weight-bold"
+                      style="color:rgb(240, 0, 148)">*</span></label>
+                </div>
+              </div>
+              <div class="flex-fill">
+                <div id="Password2Group" class="form-outline form-white  mb-4 ms-1">
+                  <input type="password" name="password2" id="InputPassword2"
+                    class="form-control form-control-lg rounded" required />
+                  <label class="form-label" for="InputPassword2">Repeat Password <span class="font-weight-bold"
+                      style="color:rgb(240, 0, 148)">*</span></label>
+                </div>
+              </div>
+            </div>
+
+              <div id="RadioGender" class="btn-group col-12 mx-auto mb-4 border border-light">
+                <input type="radio" class="btn-check" name="gender" id="gender0" value="0" required />
+                <label class="btn btn-dark btn-lg col-6" for="gender0">Female</label>
+
+                <input type="radio" class="btn-check" name="gender" id="gender1" value="1" />
+                <label class="btn btn-dark btn-lg col-6" for="gender1">Male</label>
+              </div>
+
+              <div id="RadioRole" class="btn-group col-12 mx-auto mb-4 border border-light">
+                <input type="radio" class="btn-check" name="role" id="role0" value="0" required />
+                <label class="btn btn-dark btn-lg col-6" for="role0">Student</label>
+
+                <input type="radio" class="btn-check" name="role" id="role1" value="1" />
+                <label class="btn btn-dark btn-lg col-6" for="role1">Instructor</label>
+              </div>
+
+              <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="CheckAgree" required />
+                <label class="form-check-label" for="CheckAgree">
+                  I accept OLSM terms and conditions.
+                </label>
+              </div>
+
+              <button class="btn btn-outline-light btn-lg px-5 mt-1 mb-4" type="submit">Sign Up</button>
+
+              <div>
+                <p class="mb-0">Have an account already? <a href="../login" class="text-white-50 fw-bold">Login</a>
+                </p>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../static/register.js"></script>
+{% endblock %}

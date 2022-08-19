@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>{% block title %}{%endblock %}</title>
+
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<!-- MDB CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css" rel="stylesheet" />
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../static/style.css">
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	{% if logged_in == True %}
+	{% if meeting == True %}
+	<meta name="lecture" content="{{ lec_id }}">
+	<meta name="student" content="{{ std_id }}">
+	<meta name="start" content="{{ startstamp }}">
+	<script src="../static/webcam.min.js"></script>
+	<script src="../static/main.js"></script>
+	{% endif %}
+	{% endif %}
+</head>
+
+<body class="d-flex flex-column min-vh-100 vh-100 mb-0 gradient-custom">
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark" style="background-color: #1C2331 !important;">
+		<!-- Container wrapper -->
+		<div class="container">
+			<!-- Navbar brand -->
+			<a class="navbar-brand me-2" href="https://olsm.ddns.net/">
+				Online Learning System Monitoring
+			</a>
+
+			<!-- Toggle button -->
+			<button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+				data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
+			</button>
+
+			<!-- Collapsible wrapper -->
+			<div class="collapse navbar-collapse" id="navbarButtonsExample">
+				<!-- Right links -->
+
+				<div class="d-flex navbar-nav ms-auto align-items-center">
+
+					{% if logged_in == True %}
+					{% if role == 1 %}
+					<button type="button" class="btn btn-info me-3" id="create">
+						Create Lecture
+					</button>
+					{% endif %}
+					<div class="btn-group">
+						<button type="button" class="btn btn-outline-info dropdown-toggle me-3"
+							data-mdb-toggle="dropdown" aria-expanded="false">
+							Signed In as <span class="fw-bold">{{ fname }}</span>
+						</button>
+						<ul class="dropdown-menu text-center">
+							{% if role == 1 %}
+							<li><button type="button" class="dropdown-item" id="overview">Overview</button></li>
+							{% endif %}
+							<li><button type="button" class="dropdown-item" id="chgpasswd">Change Password</button></li>
+							<li>
+								<hr class="dropdown-divider" />
+							</li>
+							<li><button type="button" class="dropdown-item" id="logout"><span class="font-weight-bold"
+										style="color:#F63E37"">Logout</span></button></li>
+                        </ul>
+                    </div>
+					{% else %}
+					<button type=" button" class="btn btn-link px-3 me-2" id="login">
+										Login
+					</button>
+					<button type="button" class="btn btn-primary me-3" id="signup">
+						Sign Up
+					</button>
+					{% endif %}
+
+					<a class="btn btn-light px-3" href="https://github.com/OLSM-Team/olsm"
+						target="_blank" role="button"><i class="fab fa-github"></i></a>
+					</div>
+				</div>
+				<!-- Collapsible wrapper -->
+			</div>
+			<!-- Container wrapper -->
+	</nav>
+	<!-- Navbar -->
+
+	<div class="d-flex align-items-md-center flex-grow-1 container-fluid">
+		{% block content %}{% endblock %}
+	</div>
+
+	<footer class="bg-dark text-center text-white flex-grow-0 flex-shrink-1"
+		style="background-color: #1C2331 !important;">
+
+		<!-- Copyright -->
+		<div class="text-center p-3">
+			© {{ now.year }} Copyright:
+			<a class="text-white" href="https://olsm.ddns.net/">Online Learning System Monitoring</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+
+
+	<!-- MDB JS -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"></script>
+	<script src="../static/base.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}OLSM | Create Lecture{% endblock %}
+
+{% block content %}
+
+<div class="row flex-grow-1 py-lg-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-7 col-xl-7">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+
+                    <div class="mb-md-3 mt-md-4 pb-1">
+
+                        <h2 class="fw-bold mb-2 text-uppercase">New Lecture</h2>
+
+                        <form>
+                            <p class="text-white-50 mb-5">Please complete the following fields!</p>
+
+                            <div id="TitleGroup" class="form-outline form-white mb-4">
+                                <input type="text" name="title" id="InputTitle"
+                                    class="form-control form-control-lg rounded" required />
+                                <label class="form-label" for="InputTitle">Lecture Title <span class="font-weight-bold"
+                                        style="color:rgb(240, 0, 148)">*</span></label>
+                            </div>
+
+                            <div class="d-flex">
+
+                                <div id="CourseName" class="form-outline form-white flex-fill mb-4 me-2">
+                                    <input type="text" name="course" id="InputCourse"
+                                        class="form-control form-control-lg rounded" required />
+                                    <label class="form-label" for="InputCourse">Course Name <span
+                                            class="font-weight-bold" style="color:rgb(240, 0, 148)">*</span></label>
+                                </div>
+
+                                <div id="DurationGroup" class="form-outline form-white flex-fill mb-4 ms-2">
+                                    <input type="number" name="duration" id="InputDuration"
+                                        class="form-control form-control-lg rounded" required min="15" step="5" />
+                                    <label class="form-label" for="InputDuration">Lecture Duration (in minutes)
+                                        <span class="font-weight-bold" style="color:rgb(240, 0, 148)">*</span></label>
+                                </div>
+
+                            </div>
+
+                            <div id="LinkGroup" class="form-outline form-white mb-4">
+                                <input type="url" name="link" id="InputLink"
+                                    class="form-control form-control-lg rounded" />
+                                <label class="form-label" for="InputLink">Meeting Link</label>
+                            </div>
+
+                            <div id="Subtopics" class="flex-fill">
+                                <h5 class="text-uppercase text-start mt-4 mb-1">Lecture Sections</h5>
+                                <div id="subtopic-helper" class="form-text text-start mb-2">
+                                    If you decided not to define subtopics, the system will automatically divide the
+                                    lectute into 30-minute sections.
+                                </div>
+                                <div class="mb-4">
+                                    <div class="input-group flex-fill">
+                                        <div class="form-outline form-white flex-fill">
+                                            <input type="text" name="subtitle" class="InputSubtopic form-control form-control-lg rounded" />
+                                            <label class="form-label" for="InputSubtopic">Subtopic Title</label>
+                                        </div>
+                                        <div class="form-outline form-white flex-fill">
+                                            <input type="number" name="from" class="InputFrom form-control form-control-lg rounded" min="0" />
+                                            <label class="form-label" for="InputFrom">Starts at (in
+                                                minutes)</label>
+                                        </div>
+                                        <div class="form-outline form-white flex-fill">
+                                            <input type="number" name="to" class="InputTill form-control form-control-lg rounded" min="5" />
+                                            <label class="form-label" for="InputTill">Ends at (in
+                                                minutes)</label>
+                                        </div>
+                                        <button type="button" class="btn btn-lg flex-fill border border-light add"
+                                            data-mdb-ripple-color="dark"
+                                            style="background-color: rgba(12, 63, 201, 0.761); color: white; font-size: 1.2rem;">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-lg flex-fill border border-light reset"
+                                            data-mdb-ripple-color="dark"
+                                            style="background-color: rgba(240, 0, 148, 0.761); color: white; font-size: 1.2rem; display: none;">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-outline-light btn-lg px-5 mt-4" type="submit">Start Lecture</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../static/create.js"></script>
+
+{% endblock %}

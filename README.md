@@ -3,6 +3,8 @@
 OLSM aims to monitor students’ focus status through facial emotion recognition during
 online classes and provide the instructor with live feedback and reports
 
+Documentation, [here](https://drive.google.com/file/d/1S3RnhnYlFP1hUMHookQKZJWhfLwAYIPZ/view?usp=drivesdk).
+
 ## Environment
 - Software
     - Amazon Linux 2
@@ -101,4 +103,4 @@ online classes and provide the instructor with live feedback and reports
 - [Ahmed Azzam](https://github.com/AhmedAzzam99)
 - [Ahmed Zakaria](https://github.com/Ahmed-Zakaria96)
 - [Hager Nasser](https://github.com/hager51)
-- [Sara Emara]()
+- [Sara Emara](#)

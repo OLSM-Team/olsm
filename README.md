@@ -15,6 +15,20 @@ online classes and provide the instructor with live feedback and reports
 - Docker
 - Docker-Compose
 
+## Usage
+- On Amazon Linux 2:
+    ```console
+    $ ./setup.sh
+    $ git clone https://github.com/OLSM-Team/olsm.git
+    $ docker compose up
+    ```
+- Other OS:<br>
+    First, Install [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/). Then run:
+    ```console
+    $ git clone https://github.com/OLSM-Team/olsm.git
+    $ docker compose up
+    ```
+
 ## Project Structure
 ```
 .

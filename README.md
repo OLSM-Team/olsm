@@ -5,7 +5,7 @@ online classes and provide the instructor with live feedback and reports
 
 Documentation, [here](https://drive.google.com/file/d/1S3RnhnYlFP1hUMHookQKZJWhfLwAYIPZ/view?usp=drivesdk).
 
-## Environment
+## Tested Environment
 - Software
     - Amazon Linux 2
     - Python
@@ -20,15 +20,20 @@ Documentation, [here](https://drive.google.com/file/d/1S3RnhnYlFP1hUMHookQKZJWhf
 ## Usage
 - On Amazon Linux 2:
     ```console
-    $ ./setup.sh
+    $ sudo yum install git -y
     $ git clone https://github.com/OLSM-Team/olsm.git
-    $ docker compose up
+    $ cd olsm
+    $ chmod +x ./setup-amazon-linux.sh
+    $ ./setup-amazon-linux.sh
+    $ docker-compose up
     ```
 - Other OS:<br>
     First, Install [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/). Then run:
     ```console
     $ git clone https://github.com/OLSM-Team/olsm.git
-    $ docker compose up
+    $ cd olsm
+    $ docker build -t mydlib .
+    $ docker-compose up
     ```
 
 ## Project Structure

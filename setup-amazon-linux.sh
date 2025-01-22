@@ -13,6 +13,3 @@ docker-compose --version
 
 # Create dlib Image
 docker build -t mydlib .
-
-# Orchestrate App
-docker-compose up
